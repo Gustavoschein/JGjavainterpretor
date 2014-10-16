@@ -1,12 +1,6 @@
-﻿https://github.com/Gustavoschein/JGjavainterpretor.git<<<<<<< .mine
-/*
+﻿/*
 ~#################################################################################~
 	Autores do código: 		Gustavo André Schein, João Marcos Campagnolo.
-=======
-/*
-~#################################################################################~
-	Autores do código: 		Gustavo André Schein, João Marcos Campagnolo.
->>>>>>> .theirs
 	E-mail do autor: 		gustavoschein@hotmail.com, jota.campagnolo@gmail.com.
 	Propósito do programa:	O programa simula um interpretador JAVA de uma
 							linguagem de programação inventada pelos autores,
@@ -21,7 +15,7 @@
 		private String Nome; //Atributo
 		private double valor; //Atributo
 	
-		//  Métodos Construtores
+		//  Métodos Construtores:
 	
 		public Variavel (){
 			this.Nome = new String();
@@ -29,7 +23,7 @@
 		}
 		
 
-		//  Métodos gets e sets.
+		//  Métodos gets e sets:
 	
 		public void setNome(String s){
 			this.Nome = s;
