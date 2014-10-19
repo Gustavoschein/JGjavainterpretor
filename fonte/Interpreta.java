@@ -17,7 +17,7 @@ class Interpretador {
 	// ATRIBUTOS:    
 	private String linhas[];
 	private Variavel[] variaveis;
-	public int indexVar = -1; // Índice usado para saber o Topo do vetor das variáveis:
+	public int indexVar = -1; // INDICE REFERENTE AO TOPO DO VETOR DE VARIÁVEIS
 	public String [] pilha;	
 	
 	// CONSTRUTORES:	
@@ -29,42 +29,43 @@ class Interpretador {
 	}
 	
 	// MÉTODOS:
-	public void interpreta(String l[]){ // Função que Interpreta:
+	public void interpreta(String l[]){ // FUNÇÃO DO INTERPRETADOR:
 		String [] linhas ;
 		linhas = l;
 		int i, j = 0; 
 		
 		for (i = 0 ;i <linhas.length;i++ ) {
-			while(linhas[i].contains("  ") == true) {// verifica se ha dois espaços continuos			    
-		       linhas[i] = linhas[i].replaceAll("  "," ");// troca dois espaços por um
+			while(linhas[i].contains("  ") == true) { // VERIFICA SE EXISTEM DOIS ESPAÇOS CONTÍNUOS			    
+		       linhas[i] = linhas[i].replaceAll("  "," "); // TOCA DOIS ESPAÇOS POR UM
 		    }  
-		    linhas[i] = linhas[i].trim(); // remove os espaços inico e fim		    
-			pilha  = linhas[i].split(" ");// quebra em  substrings onde ha espaço e coloca numa pilha						
+		    linhas[i] = linhas[i].trim(); // REMOVE ESPAÇOS DO INICIO E DO FIM		    
+			pilha  = linhas[i].split(" "); // QUEBRA EM SUBSTRINGS ONDE HÁ UM ESPAÇO E JOGA PARA A PILHA						
 							
 			i = verificaFuncao(i, pilha);
 		}	
 	}	
-	public int existeVariavel(String nomeVar){ // retorna o indice 
+	public int existeVariavel(String nomeVar){ // RETORNO DO INDICE
 		for (int i = 0; i < variaveis.length;i++) {
 			if (nomeVar.equals(variaveis[i].getName())){			
-				return i; // return indice variavel se existe a varival  passada por parametro
+				return i; // RETORNA O INDICE DA VARIÁVEL CADO ELA EXISTA
 			}
 		}
 		//System.out.println("ERRO 12 :Comando Invalido, a Variavel não foi declarada \n\n");
 		return -12; // 	
 	}
-	public double valorVariavel(String nomeVar){//retorna val variavel caso exista se nao converte em double
+	public double valorVariavel(String nomeVar){ // RETORNA VALOR DA VARIÁVEL CASO EXXISTA, SE NÃO CONVERTE PARA DOUBLE
 		for (int i = 0; i < 200;i++) {
 			if (nomeVar.equals(variaveis[i].getName())){				
 				return variaveis[i].getValor(); 
 			}
 			
 		}
-		return Double.parseDouble(nomeVar);// caso variavel nao exista converte double		
+		return Double.parseDouble(nomeVar); // CASO A VARIÁVEL NAO EXISTA, CONVERTE PARA DOUBLE		
 	}
 	
 	// ======================================================================================//
-	public boolean desempilha (){// faz todas as operações	
+	
+	public boolean desempilha (){ // FUNÇÃO QUE REALIZA TODAS AS OPERAÇÕES:
 		double total = 0;
 		double var1,var2;
 		for (int op = 0; op < pilha.length; op++){
@@ -73,33 +74,33 @@ class Interpretador {
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);
 				total = var1 + var2;
-				pilha[op+1] = String.valueOf(total);// converte p/string denovo	
+				pilha[op+1] = String.valueOf(total); // RECONVERTE PARA STRING	
 			
 			}else if (pilha[op].equals("-")) { // SUBTRAÇÃO
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);
 				total = var1 - var2;
-				pilha[op+1] = String.valueOf(total);// converte p/string denovo	
+				pilha[op+1] = String.valueOf(total); // RECONVERTE PARA STRING	
 			
-			}else if (pilha[op].equals("*")) { //MULTIPLICAÇÃO
+			}else if (pilha[op].equals("*")) { // MULTIPLICAÇÃO
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);
 				total = var1 * var2;
-				pilha[op+1] = String.valueOf(total);// converte p/string denovo	
+				pilha[op+1] = String.valueOf(total); // RECONVERTE PARA STRING	
 			
-			}else if((pilha[op].equals("%"))){ //PEGA O RESTO
+			}else if((pilha[op].equals("%"))){ // PEGA O RESTO
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);
 				total = var1 % var2;
-				pilha[op+1] = String.valueOf(total);// converte p/string denovo	
+				pilha[op+1] = String.valueOf(total); // RECONVERTE PARA STRING	
 
-			}else if (pilha[op].equals("/")){ //DIVISÃO
+			}else if (pilha[op].equals("/")){ // DIVISÃO
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);
 				total = var1 / var2;
-				pilha[op+1] = String.valueOf(total);// converte p/string denovo	
+				pilha[op+1] = String.valueOf(total); // RECONVERTE PARA STRING	
 			
-			} else if (pilha[op].equals("<")) { //MENOR
+			} else if (pilha[op].equals("<")) { // MENOR
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);				
 				if(var1 < var2) {
@@ -108,7 +109,7 @@ class Interpretador {
 					return false;
 				}
 			
-			} else if (pilha[op].equals(">")) { //MAIOR
+			} else if (pilha[op].equals(">")) { // MAIOR
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);				
 				if(var1 > var2) {
@@ -117,7 +118,7 @@ class Interpretador {
 					return false;
 				}
 			
-			} else if (pilha[op].equals("!=")) {// DIFERENTE
+			} else if (pilha[op].equals("!=")) { // DIFERENTE
 				
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);
@@ -126,7 +127,7 @@ class Interpretador {
 				}else{
 					return true;
 				}
-			}else if (pilha[op].equals("==")) {// IGUAL 				
+			}else if (pilha[op].equals("==")) { // IGUAL 				
 				var1 = converteDouble(pilha[op-1]);
 				var2 = converteDouble(pilha[op+1]);
 				if(var1 == var2){
@@ -134,19 +135,19 @@ class Interpretador {
 				}else{
 					return false;
 				}
-			}else if (pilha[op].equals("++")) {// IGUAL 				
+			}else if (pilha[op].equals("++")) { // INCREMENTO 				
 				var1 = converteDouble(pilha[op-1]);
 				total = var1 + 1;
-				pilha[op] = "=";// para que a verificação de atribuição localize atribuição	
-			}else if (pilha[op].equals("--")) {// IGUAL 				
+				pilha[op] = "="; // PARA QUE A VERIFICAÇÃO DE ATRIBUIÇÃO LOCALIZE ATRIBUIÇÃO	
+			}else if (pilha[op].equals("--")) { // DECREMENTO			
 				var1 = converteDouble(pilha[op-1]);
 				total = var1 - 1;
-				pilha[op] = "=";// para que a verificação de atribuição localize atribuição	
+				pilha[op] = "="; // PARA QUE A VERIFICAÇÃO DE ATRIBUIÇÃO LOCALIZE ATRIBUIÇÃO	
 			}
 		}
-		for (int j = 0; j < pilha.length ; j ++) {// verif. se ha (=) atribuição
+		for (int j = 0; j < pilha.length ; j ++) { // VERIFICA SE HÁ (=) ATRIBUIÇÃO
 			if (pilha[j].equals("=")) {	
-				int indiVAr = existeVariavel(pilha[j-1]);// pega indice da variavel no vetor de variaveis	
+				int indiVAr = existeVariavel(pilha[j-1]); // PEGA O INDICE DA VARIAVEL NO VETOR DE VARIAVEIS	
 				variaveis[indiVAr].setValor(total);
 			}
 			/* RESUMO : J VAI PARAR QUANDO TIVE ENCONTRADO =, A VARIAVEL QUE ESTA ANTES DO =  E 
@@ -156,4 +157,36 @@ class Interpretador {
 		}	
 		return true;
 	}
+	public void DEC(String nomeVar){
+		indexVar++; // INDICE ESTATICO PARA ATRIBUIÇÃO NA PROXIMA POSIÇÃO
+		variaveis[indexVar].setName(nomeVar);
+		//variaveis[indexVar].setValor(33);		
+		//imprimeVariaveis();	
+	}
+	
+	public void imprimeVariaveis(){ // IMPRIME TODO O VETOR DE VARIAVEIS
+	 	for (int i = 0 ;i <10; i++ ) {
+	 		System.out.print("Var = "+ variaveis[i].getName());
+	 		System.out.println("Valor"+variaveis[i].getValor());
+	 	}
+	}
+	
+	public int IFF(int i, String []linhas){
+		while(!(pilha[0].equals("#ENDIFF"))) { // ENQUANTO NÃO ACHAR O FIM DO IFF
+			i++;
+			if (pilha[0].equals("#ENDIFF")) {
+				return i+1;
+			}else{
+				while(linhas[i].contains("  ") == true) { // VERIFICA SE HA DOIS ESPAÇOS CONTINUOS			    
+					linhas[i] = linhas[i].replaceAll("  "," "); // TROCA DOIS ESPAÇOS POR UM
+				}  
+				if(linhas[i].charAt(0) != '@'){ // QUANDO A LINHA NÃO TIVER NADA
+					linhas[i] = linhas[i].trim(); // REMOVE OS ESPAÇOS DO INICIO E DO FIM
+				}
+				pilha  = linhas[i].split(" "); // QUEBRA EM SUBSTRINGS ONDE HÁ ESPAÇO E COLOCA NUMA PILHA						
+			}
+		}
+		return i + 1;
+	}
+	
 }	
