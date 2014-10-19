@@ -189,4 +189,73 @@ class Interpretador {
 		return i + 1;
 	}
 	
+	public double converteDouble(String nomeVar){
+		int ind;
+		ind = existeVariavel(nomeVar);
+		if (ind >= 0) {
+			return variaveis[ind].getValor();
+		}else {
+			return Double.parseDouble(nomeVar);	
+		}		
+	}
+	
+	public void OUT(String []pilhaOut){
+		String nomeVar = new String();
+		for (int i = 1; i < pilhaOut.length ;i++ ) { // POSIÇÃO [0] É #OUT
+			if (pilhaOut[i].charAt(0) == '$'){
+				//System.out.println(variaveis[0].getName());	
+				nomeVar = pilhaOut[i].substring(1,pilhaOut[i].length());
+				System.out.print(variaveis[existeVariavel(nomeVar)].getValor()+" ");
+			}else{
+				System.out.print(pilhaOut[i]+" ");
+			}
+		}
+		System.out.print("\n");
+
+	}
+	
+	public void REP(){
+		// WHILE COM RECURSÃO, PASSANDO A LINHA ONDE ESTAVA
+	}
+	
+	public int verificaFuncao(int i, String[] pilha){
+		boolean verifica;
+		String nomeVar = new String(); // ARMAZENA O NOME NAS LINHAS
+		boolean deuCerto = true;
+		
+		// ============================== VERIFICA AS FUNÇÕES ==================================
+		
+		if (pilha[0].equals("#DEC")) { // DECLARA UMA VARIAVEL 
+			nomeVar = pilha[1]; // PEGA O VALOR NA VARIÁVEL
+			DEC(nomeVar);
+			deuCerto = desempilha(); // DEU CERTO, NÃO FAZ NADA, PARA RECEBER RETORNO TRUE
+		
+
+		}else if (pilha[0].equals("#OUT")) {
+			OUT(pilha); // PASSA A LINHA QUE ESTÁ SENDO EXECUTADA
+			deuCerto = desempilha(); // DEU CERTO, NÃO FAZ NADA, PARA RECEBER RETORNO TRUE	
+		
+
+		}else if (pilha[0].equals("#IFF")){	// CHAMA FUNCAO IFF PARA ACHAR O END IFF			
+			
+			verifica = desempilha(); // VERIFICA IFF
+			if (verifica == false){
+				i = IFF(i,linhas); // PROCURA O FIM
+				i =i-1;
+			}
+			
+		}else if(pilha[0].equals("#REP")){
+			/*
+			verifica = desempilha(); //verifica IFF
+			System.out.println(verifica);
+			if (verifica = false){
+				i = IFF(i);
+				System.out.println("\n\n DEU FALSO \n\n");
+			}
+			*/
+		}else{
+			desempilha();
+		}
+		return i ;
+	}	
 }	
