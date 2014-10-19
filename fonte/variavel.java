@@ -11,7 +11,7 @@
 ~#################################################################################~
 */
 
-	Class Variavel {
+	class Variavel {
 		private String Nome; //Atributo
 		private double valor; //Atributo
 	
