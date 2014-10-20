@@ -1,13 +1,13 @@
-/*
+Ôªø/*
 ~#################################################################################~
-	Autores do cÛdigo: 		Gustavo AndrÈ Schein, Jo„o Marcos Campagnolo.
+	Autores do c√≥digo: 		Gustavo Andr√© Schein, Jo√£o Marcos Campagnolo.
 	E-mail do autor: 		gustavoschein@hotmail.com, jota.campagnolo@gmail.com.
-	PropÛsito do programa:	O programa simula um interpretador JAVA de uma
-							linguagem de programaÁ„o inventada pelos autores,
-							a qual recebe o cÛdigo a ser interpretado atravÈs 
-							de um arquivo de texto, que ser· redirecionado como
+	Prop√≥sito do programa:	O programa simula um interpretador JAVA de uma
+							linguagem de programa√ß√£o inventada pelos autores,
+							a qual recebe o c√≥digo a ser interpretado atrav√©s 
+							de um arquivo de texto, que ser√° redirecionado como
 							entrada do programa.
-	Link do cÛdigo fonte:	https://github.com/Gustavoschein/JGjavainterpretor
+	Link do c√≥digo fonte:	https://github.com/Gustavoschein/JGjavainterpretor
 ~#################################################################################~
 */
 
