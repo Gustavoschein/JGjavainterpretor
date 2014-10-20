@@ -1,43 +1,41 @@
-Ôªø/*
+/*
 ~#################################################################################~
-	Autores do c√≥digo: 		Gustavo Andr√© Schein, Jo√£o Marcos Campagnolo.
+	Autores do cÛdigo: 		Gustavo AndrÈ Schein, Jo„o Marcos Campagnolo.
 	E-mail do autor: 		gustavoschein@hotmail.com, jota.campagnolo@gmail.com.
-	Prop√≥sito do programa:	O programa simula um interpretador JAVA de uma
-							linguagem de programa√ß√£o inventada pelos autores,
-							a qual recebe o c√≥digo a ser interpretado atrav√©s 
-							de um arquivo de texto, que ser√° redirecionado como
+	PropÛsito do programa:	O programa simula um interpretador JAVA de uma
+							linguagem de programaÁ„o inventada pelos autores,
+							a qual recebe o cÛdigo a ser interpretado atravÈs 
+							de um arquivo de texto, que ser· redirecionado como
 							entrada do programa.
-	Link do c√≥digo fonte:	https://github.com/Gustavoschein/JGjavainterpretor
+	Link do cÛdigo fonte:	https://github.com/Gustavoschein/JGjavainterpretor
 ~#################################################################################~
 */
 
-	Class Variavel {
-		private String Nome; //Atributo
-		private double valor; //Atributo
-	
-		//  M√©todos Construtores:
-	
-		public Variavel (){
-			this.Nome = new String();
-			this.Valor = 0.0;
-		}
-		
+class Variavel{
+	// ATRIBUTOS:
+	private String Nome;
+	private double Valor;
 
-		//  M√©todos gets e sets:
-	
-		public void setNome(String s){
-			this.Nome = s;
-		}
-		
-		public String getNome(){
-			return this.Nome;
-		}
-
-		public void setValor(double d){
-			this.Valor = d;
-		}
-
-		public double getValor(){
-			return this.Valor;
-		}
+	// CONSTRUTORES:
+	public Variavel(){
+		this.Nome = new String();
+		this.Valor = 0.0;
 	}
+
+	// METODOS:
+	public void setNome(String s){
+		this.Nome = s;
+	}
+	
+	public String getNome(){
+		return this.Nome;
+	}
+
+	public void setValor(double d){
+		this.Valor = d;
+	}
+
+	public double getValor(){
+		return this.Valor;
+	}
+}

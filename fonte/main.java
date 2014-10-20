@@ -1,13 +1,13 @@
 /*
 ~#################################################################################~
-	Autores do c√≥digo: 		Gustavo Andr√© Schein, Jo√£o Marcos Campagnolo.
+	Autores do cÛdigo: 		Gustavo AndrÈ Schein, Jo„o Marcos Campagnolo.
 	E-mail do autor: 		gustavoschein@hotmail.com, jota.campagnolo@gmail.com.
-	Prop√≥sito do programa:	O programa simula um interpretador JAVA de uma
-							linguagem de programa√ß√£o inventada pelos autores,
-							a qual recebe o c√≥digo a ser interpretado atrav√©s 
-							de um arquivo de texto, que ser√° redirecionado como
+	PropÛsito do programa:	O programa simula um interpretador JAVA de uma
+							linguagem de programaÁ„o inventada pelos autores,
+							a qual recebe o cÛdigo a ser interpretado atravÈs 
+							de um arquivo de texto, que ser· redirecionado como
 							entrada do programa.
-	Link do c√≥digo fonte:	https://github.com/Gustavoschein/JGjavainterpretor
+	Link do cÛdigo fonte:	https://github.com/Gustavoschein/JGjavainterpretor
 ~#################################################################################~
 */
 
@@ -20,17 +20,17 @@ class Main {
 		File f;
 		Scanner s;
 		Interpretador b;
-		String linhas[] = new String[2000]; // M√°ximo de linhas: 2000.
+		String linhas[] = new String[2000]; // MAXIMO DE LINHAS: 2000.
 		f = new File(args[0]);
 		s = new Scanner(f);
 		b = new Interpretador();
 		int i = 0;
-		while(s.hasNext()) {
+		while(s.hasNext()){
 			linhas[i] = s.nextLine();
 			i++;
 		}
 		i = 0;
-		while(i < 2000){ // deixa todas as posi√ß√µes com nada caso a linha seja NULL.
+		while(i < 2000){ // DEIXA TODAS AS POCICOES COM ANDA CASO A LINHA SEJA NULL.
 			if (linhas[i] == null) {
 				linhas[i] = "@";
 			}

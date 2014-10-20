@@ -1,1 +1,7 @@
+#DEC a = 1 + 4
+#OUT $a
+#IFF a == 1
+#OUT joao
+#ENDIFF
+#OUT gustavo
 
