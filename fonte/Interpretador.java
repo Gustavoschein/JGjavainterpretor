@@ -175,7 +175,7 @@ class Interpretador{
 	public int IFF(int i, String []linhas){
 		while(!(pilha[0].equals("#ENDIFF"))){ // ENQUANTO NÃO ACHAR O FIM DO IFF
 			i++;
-			if (pilha[0].equals("#ENDIFF")){
+			if (linhas[i].equals("#ENDIFF")){
 				return i+1;
 			}
 			else{

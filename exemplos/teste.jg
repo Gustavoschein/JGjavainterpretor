@@ -1,6 +1,6 @@
-#DEC a = 1 + 4
+#DEC a = 1 + 1
 #OUT $a
-#IFF a == 1
+#IFF a == 2
 #OUT joao
 #ENDIFF
 #OUT gustavo
